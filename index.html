@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MANSION PLZ</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Matemasie&family=Pragati+Narrow:wght@400;700&family=Press+Start+2P&family=Righteous&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        /* background-color: #f4f4f4; */
+        background: linear-gradient(
+          to bottom right,
+
+          rgb(0, 255, 255),
+          rgb(218, 33, 255),
+          rgb(0, 255, 128)
+        );
+        font-family: "Lilita One", sans-serif;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 90%;
+      }
+
+      .logo {
+        margin-bottom: 20px;
+        border-radius: 30%;
+      }
+
+      .buttons {
+        margin-bottom: 20px;
+      }
+
+      .buttons button {
+        background-color: #00cea1;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 25px;
+      }
+
+      .buttons button:hover {
+        background-color: #0056b3;
+      }
+
+      .paragraph {
+        font-size: 28px;
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .countdown {
+        font-size: 30px;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        .buttons button {
+          font-size: 14px;
+          padding: 8px 15px;
+        }
+
+        .paragraph {
+          font-size: 16px;
+        }
+
+        .countdown {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="./images/logo.png" alt="Logo" class="logo" />
+      <div class="buttons">
+        <button
+          style="font-family: 'Lilita One', sans-serif"
+          onclick="window.location.href='twitterlink'"
+        >
+          Twitter
+        </button>
+        <button
+          style="font-family: 'Lilita One', sans-serif"
+          style="font-family: 'Lilita One', sans-serif"
+          onclick="window.location.href='tglink'"
+        >
+          Telegram
+        </button>
+        <button
+          style="font-family: 'Lilita One', sans-serif"
+          onclick="window.location.href='chartlink'"
+        >
+          Chart
+        </button>
+      </div>
+      <p class="paragraph">CA : xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      <div class="countdown" id="countdown"></div>
+    </div>
+    <script>
+      function updateCountdown() {
+        const eventDate = new Date("December 20, 2024 00:00:00 GMT+0000");
+        const now = new Date();
+        const timeDifference = eventDate - now;
+
+        if (timeDifference > 0) {
+          const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          const minutes = Math.floor(
+            (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+          document.getElementById(
+            "countdown"
+          ).textContent = `Time left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+          document.getElementById("countdown").textContent =
+            "The event has started!";
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
